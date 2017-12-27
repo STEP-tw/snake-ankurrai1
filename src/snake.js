@@ -15,6 +15,12 @@ Snake.prototype={
     this.head=this.head.next();
     return this.body.shift();
   },
+  isColliedItSelf:function () {
+    let snakeHead=this.head;
+    return this.body.some(function (bodyPart) {
+      return bodyPart.x==snakeHead.x&&bodyPart.y==snakeHead.y;
+    });
+  },
   grow:function() {
     this.body.unshift(new Position(Infinity,Infinity,this.direction));
   },
