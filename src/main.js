@@ -60,6 +60,7 @@ const addKeyListener = function() {
 }
 
 const stopGame = function() {
+  clearInterval(animator);
   document.getElementById("display").innerText = "Game over";
 };
 
