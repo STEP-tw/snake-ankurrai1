@@ -24,3 +24,9 @@
   background-color: blue;
   border-radius: 50%;
 }
+#display{
+  width: 20%;
+  background-color: steelBlue;
+  font-family: sans-serif;
+  font-size: 50px;
+}

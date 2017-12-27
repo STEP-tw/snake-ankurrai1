@@ -41,8 +41,15 @@ const isGameOver = function() {
   return snake.isColliedItSelf() || isColliedWithWall();
 }
 
+const isColliedWithSideWall = function() {
+  return snake.isColliedWithEastWall() || snake.isColliedWithWestWall()
+}
+const isTopBottomWallCollision = function() {
+  return snake.isColliedWithNorthWall() || snake.isColliedWithSouthWall()
+}
+
 const isColliedWithWall = function() {
-  return snake.isColliedWithEastWall() || snake.isColliedWithWestWall() || snake.isColliedWithNorthWall() || snake.isColliedWithSouthWall();
+  return isColliedWithSideWall() || isTopBottomWallCollision();
 }
 
 const addKeyListener = function() {
