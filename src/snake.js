@@ -23,11 +23,11 @@ Snake.prototype = {
   },
 
   isColliedEastWall: function() {
-    return this.head.x == 120 && this.head.direction == "east";
+    return this.head.x == 119 && this.head.direction == "east";
   },
 
-  isColliedItSelf: function() {
-
+  isColliedWestWall: function() {
+    return this.head.x == 0 && this.head.direction == "west";
   },
 
   isColliedItSelf: function() {

@@ -8,7 +8,7 @@ let animator = undefined;
 const animateSnake = function() {
   let oldHead = snake.getHead();
   if (isGameOver(snake)) {
-    return stopGame;
+    return stopGame();
   };
   let oldTail = snake.move();
   let head = snake.getHead();
@@ -38,11 +38,11 @@ const changeSnakeDirection = function(event) {
 }
 
 const isGameOver = function() {
-  snake.isColliedItSelf() || isColliedWithWall();
+  return snake.isColliedItSelf() || isColliedWithWall();
 }
 
 const isColliedWithWall = function() {
-  return snake.isColliedEastWall();
+  return snake.isColliedEastWall()||snake.isColliedWestWall();
 }
 
 const addKeyListener = function() {
