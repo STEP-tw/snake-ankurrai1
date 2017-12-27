@@ -1,3 +1,8 @@
+const eastWallPositionOnX = 119;
+const westWallPositionOnX = 0;
+const northWallPositionOnY = 0;
+const southWallPositionOnY = 59;
+
 const Snake = function(head, body) {
   this.head = head;
   this.body = body;
@@ -22,20 +27,20 @@ Snake.prototype = {
     });
   },
 
-  isColliedEastWall: function() {
-    return this.head.x == 119 && this.head.direction == "east";
+  isColliedWithEastWall: function() {
+    return this.head.x == eastWallPositionOnX && this.head.direction == "east";
   },
 
-  isColliedWestWall: function() {
-    return this.head.x == 0 && this.head.direction == "west";
+  isColliedWithWestWall: function() {
+    return this.head.x == westWallPositionOnX && this.head.direction == "west";
   },
 
-  isColliedNorthWall: function() {
-    return this.head.y == 0 && this.head.direction == "north"
+  isColliedWithNorthWall: function() {
+    return this.head.y == northWallPositionOnY && this.head.direction == "north"
   },
 
-  isColliedItSelf: function() {
-
+  isColliedWithSouthWall: function() {
+    return this.head.y == southWallPositionOnY && this.head.direction == "south"
   },
 
   grow: function() {

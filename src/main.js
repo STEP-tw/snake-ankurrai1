@@ -42,7 +42,7 @@ const isGameOver = function() {
 }
 
 const isColliedWithWall = function() {
-  return snake.isColliedEastWall() || snake.isColliedWestWall() || snake.isColliedNorthWall();
+  return snake.isColliedWithEastWall() || snake.isColliedWithWestWall() || snake.isColliedWithNorthWall() || snake.isColliedWithSouthWall();
 }
 
 const addKeyListener = function() {
