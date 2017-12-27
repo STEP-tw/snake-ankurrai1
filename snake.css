@@ -24,9 +24,11 @@
   background-color: blue;
   border-radius: 50%;
 }
-#display{
+
+#display {
   width: 20%;
   background-color: steelBlue;
   font-family: sans-serif;
+  font-weight: bold;
   font-size: 50px;
 }

@@ -44,6 +44,7 @@ const isGameOver = function() {
 const isColliedWithSideWall = function() {
   return snake.isColliedWithEastWall() || snake.isColliedWithWestWall()
 }
+
 const isTopBottomWallCollision = function() {
   return snake.isColliedWithNorthWall() || snake.isColliedWithSouthWall()
 }
