@@ -30,8 +30,8 @@ Snake.prototype = {
     return this.head.x == 0 && this.head.direction == "west";
   },
 
-  isColliedItSelf: function() {
-
+  isColliedNorthWall: function() {
+    return this.head.y == 0 && this.head.direction == "north"
   },
 
   isColliedItSelf: function() {
