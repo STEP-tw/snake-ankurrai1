@@ -1,33 +1,50 @@
-const Snake=function(head,body) {
-  this.head=head;
-  this.body=body;
+const Snake = function(head, body) {
+  this.head = head;
+  this.body = body;
 }
 
-Snake.prototype={
-  getBody:function() {
+Snake.prototype = {
+  getBody: function() {
     return this.body;
   },
-  getHead:function() {
+  getHead: function() {
     return this.head;
   },
-  move:function() {
+  move: function() {
     this.body.push(this.head);
-    this.head=this.head.next();
+    this.head = this.head.next();
     return this.body.shift();
   },
-  isColliedItSelf:function () {
-    let snakeHead=this.head;
-    return this.body.some(function (bodyPart) {
-      return bodyPart.x==snakeHead.x&&bodyPart.y==snakeHead.y;
+  isColliedItSelf: function() {
+    let snakeHead = this.head;
+    return this.body.some(function(bodyPart) {
+      return bodyPart.x == snakeHead.x && bodyPart.y == snakeHead.y;
     });
   },
-  grow:function() {
-    this.body.unshift(new Position(Infinity,Infinity,this.direction));
+
+  isColliedEastWall: function() {
+    return this.head.x == 120 && this.head.direction == "east";
   },
-  turnLeft:function() {
-    this.head=this.head.turnLeft();
+
+  isColliedItSelf: function() {
+
   },
-  turnRight:function() {
-    this.head=this.head.turnRight();
+
+  isColliedItSelf: function() {
+
+  },
+
+  isColliedItSelf: function() {
+
+  },
+
+  grow: function() {
+    this.body.unshift(new Position(Infinity, Infinity, this.direction));
+  },
+  turnLeft: function() {
+    this.head = this.head.turnLeft();
+  },
+  turnRight: function() {
+    this.head = this.head.turnRight();
   }
 }

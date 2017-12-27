@@ -38,7 +38,11 @@ const changeSnakeDirection = function(event) {
 }
 
 const isGameOver = function() {
-  return snake.isColliedItSelf();
+  snake.isColliedItSelf() || isColliedWithWall();
+}
+
+const isColliedWithWall = function() {
+  return snake.isColliedEastWall();
 }
 
 const addKeyListener = function() {
@@ -58,9 +62,6 @@ const createSnake = function() {
   body.push(tail.next());
   let head = tail.next().next();
   snake = new Snake(head, body);
-  if (isGameOver()) {
-    return stopGame();
-  }
 }
 
 const createFood = function(numberOfRows, numberOfCols) {
