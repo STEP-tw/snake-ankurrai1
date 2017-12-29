@@ -7,9 +7,6 @@ let animator = undefined;
 
 const animateSnake = function() {
   let oldHead = snake.getHead();
-  if (isGameOver(snake)) {
-    return stopGame();
-  };
   let oldTail = snake.move();
   let head = snake.getHead();
   paintBody(oldHead);
@@ -19,6 +16,9 @@ const animateSnake = function() {
     snake.grow();
     createFood(numberOfRows, numberOfCols);
     drawFood(food);
+  }
+  if (isGameOver(snake)) {
+    return overGame();
   }
 }
 
@@ -77,6 +77,10 @@ const createFood = function(numberOfRows, numberOfCols) {
   food = generateRandomPosition(numberOfCols, numberOfRows);
 }
 
+const restart = function(){
+  location.reload();
+}
+
 const startGame = function() {
   createSnake(createSnake());
   drawGrids(numberOfRows, numberOfCols);
@@ -86,5 +90,6 @@ const startGame = function() {
   addKeyListener();
   animator = setInterval(animateSnake, 140);
 }
+
 
 window.onload = startGame;

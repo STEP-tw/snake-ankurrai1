@@ -39,3 +39,15 @@ const drawSnake = function(snake) {
 const drawFood = function(food) {
   paintCell(food, "food");
 }
+
+const overGame = function() {
+  let gameOverStatement = document.createElement('h2');
+  gameOverStatement.innerHTML = 'Game Over';
+  let restartButton = document.createElement('button');
+  restartButton.innerHTML = 'restart';
+  restartButton.onclick = restart;
+  let messgArea = document.getElementById('hidden_tail');
+  messgArea.appendChild(gameOverStatement);
+  messgArea.appendChild(restartButton);
+  messgArea.style.visibility = "visible";
+}
