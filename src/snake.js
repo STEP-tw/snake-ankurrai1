@@ -22,27 +22,8 @@ Snake.prototype = {
   },
   isColliedItSelf: function() {
     let snakeHead = this.head;
-    return this.body.some(function(bodyPart) {
-      return bodyPart.x == snakeHead.x && bodyPart.y == snakeHead.y;
-    });
+    return this.body.some((bodyPart)=>snakeHead.isSameCoordAs(bodyPart));
   },
-
-  isColliedWithEastWall: function() {
-    return this.head.x == eastWallPositionOnX && this.head.direction == "east";
-  },
-
-  isColliedWithWestWall: function() {
-    return this.head.x == westWallPositionOnX && this.head.direction == "west";
-  },
-
-  isColliedWithNorthWall: function() {
-    return this.head.y == northWallPositionOnY && this.head.direction == "north"
-  },
-
-  isColliedWithSouthWall: function() {
-    return this.head.y == southWallPositionOnY && this.head.direction == "south"
-  },
-
   grow: function() {
     this.body.unshift(new Position(Infinity, Infinity, this.direction));
   },
@@ -51,5 +32,8 @@ Snake.prototype = {
   },
   turnRight: function() {
     this.head = this.head.turnRight();
+  },
+  iswithinRange: function(topLeftPos, bottomRightPos) {
+  return topLeftPos.isSameCoordAs(this.head)||bottomRightPos.isSameCoordAs(this.head);
   }
 }

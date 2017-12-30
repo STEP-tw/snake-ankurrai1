@@ -41,7 +41,10 @@ Position.prototype.isSameCoordAs = function(other) {
 
 Position.prototype.getCoord = function() {
   return [this.x, this.y];
-}
+};
+
+Position.prototype.iswithinRange=function (topLeftPos,bottomRightPos) {
+};
 
 const generateRandomPosition = function(maxX, maxY) {
   let x = generateRandomNumberBetween(0, maxX);
